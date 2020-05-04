@@ -3,6 +3,9 @@ services:
   app:
     container_name: dnsmasq
     image: joaquinmonteroalvarezith/simple-dns:latest
+    logging:
+      options:
+        max-size: 100m
     build:
       context: .
     volumes:
@@ -10,9 +13,7 @@ services:
     ports:
       - 5380:8080
       - 53:53
-    environment:
-      - HTTP_USER=admin
-      - HTTP_PASS=admin
+    env_file:
+      - .env
     tty: true
     stdin_open: true
-
