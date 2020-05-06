@@ -12,7 +12,7 @@ services:
       - ./dnsmasq.conf:/etc/dnsmasq.conf
     ports:
       - 5380:8080
-      - 53:53
+      - 53:53/udp
     env_file:
       - .env
     tty: true
